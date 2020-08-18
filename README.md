@@ -36,4 +36,5 @@ A set of video lectures, presentation and javascript demonstrations of lambda ca
 
 ## About
 Author: Spyros Koukas
+
 Date: 2020-08-13
