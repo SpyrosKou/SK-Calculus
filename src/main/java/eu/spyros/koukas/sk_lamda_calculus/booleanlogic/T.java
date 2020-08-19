@@ -17,8 +17,6 @@ import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
  */
 public final class T implements Term {
     private static final String NAME = "T";
-
-    private static final int HASHCODE = K.hashCode();
     /**
      * A singleton {@link T}
      */
@@ -33,20 +31,21 @@ public final class T implements Term {
 
     /**
      * @return a hash code value for this object.
+     * The hashCode of {@link T} is guaranteed to be the same with {@link K} when running in the same Java VM.
      *
      * @see Object#equals(Object)
      * @see System#identityHashCode
      */
     @Override
     public int hashCode() {
-        return HASHCODE;
+        return K.hashCode();
     }
 
     /**
      * @param obj the reference object with which to compare.
      *
      * @return {@code true} if this object is the same as the obj
-     * argument; {@code false} otherwise.
+     * argument; {@code false} otherwise. Every {@link T} is equal to every {@link K}
      *
      * @see #hashCode()
      */
@@ -65,10 +64,8 @@ public final class T implements Term {
         return K.apply(x);
     }
 
-    /**
-     * @return an instance of {@link T}
-     */
-    public final T apply() {
+
+    public static final Term T() {
         return T;
     }
 
@@ -78,7 +75,7 @@ public final class T implements Term {
      * @return
      */
     public static final Term T(final Term x) {
-        return K.apply();
+        return T.apply(x);
     }
 
     /**

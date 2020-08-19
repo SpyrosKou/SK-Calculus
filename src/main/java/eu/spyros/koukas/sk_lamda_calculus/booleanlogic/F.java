@@ -36,7 +36,6 @@ import java.util.Objects;
  */
 public final class F implements Term {
     private static final String NAME = "F";
-    private static final int HASHCODE = new Object().hashCode();
     /**
      * A singleton {@link F}
      */
@@ -49,16 +48,6 @@ public final class F implements Term {
 
     }
 
-    /**
-     * @return a hash code value for this object.
-     *
-     * @see Object#equals(Object)
-     * @see System#identityHashCode
-     */
-    @Override
-    public int hashCode() {
-        return HASHCODE;
-    }
 
     /**
      * @param obj the reference object with which to compare.
@@ -80,7 +69,7 @@ public final class F implements Term {
      * @return
      */
     public static final Term F(final Term x) {
-        return S(K(x));
+        return S(K).apply(x);
     }
 
     /**
@@ -100,7 +89,7 @@ public final class F implements Term {
      */
     @Override
     public final Term apply(final Term term) {
-        return S(term);
+        return F(term);
     }
 
     @Override
