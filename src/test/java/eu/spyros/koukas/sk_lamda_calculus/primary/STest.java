@@ -21,6 +21,7 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  */
 import junit.framework.TestCase;
 
+import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.I.*;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
@@ -117,5 +118,9 @@ public class STest extends TestCase {
             assertEquals(I.apply(K),K );
             assertEquals(I.apply(S),S );
         }
+    }
+
+    public void testSingleton() {
+        assertSame(S, S());
     }
 }

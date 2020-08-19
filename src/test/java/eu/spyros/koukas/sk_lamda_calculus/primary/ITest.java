@@ -62,4 +62,8 @@ public class ITest extends TestCase {
         assertNotSame(I.hashCode(), K.hashCode());
         assertNotSame(I.hashCode(), S.hashCode());
     }
+
+    public void testSingleton() {
+        assertSame(I, I());
+    }
 }
