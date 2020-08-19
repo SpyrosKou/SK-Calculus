@@ -20,14 +20,14 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.F.S;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
 
 /**
  * The identity Lambda Combinator.
  * Always returns its argument.
  * Implemented in SK-Calculus as SKK.
- * While it is an optional combinator, it is included in the same package with {@link F} and {@link K} combinators.
+ * While it is an optional combinator, it is included in the same package with {@link S} and {@link K} combinators.
  * This is because it is often included together with S and K combinators in SKI Combinator Calculus.
  * Created at 2020-08-01
  *
