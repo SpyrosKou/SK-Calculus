@@ -1,24 +1,25 @@
 package eu.spyros.koukas.sk_lamda_calculus.primary;
 /**
  * SK Calculus
- *     A SK Combinator Calculus written in Java
- *     https://github.com/SpyrosKou/SK-Calculus
- *     Copyright (C) 2020  Spyros Koukas
- *
- *
- *     This program is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     This program is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * A SK Combinator Calculus written in Java
+ * https://github.com/SpyrosKou/SK-Calculus
+ * Copyright (C) 2020  Spyros Koukas
+ * <p>
+ * <p>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 import java.util.Objects;
 import java.util.StringJoiner;
 
@@ -29,7 +30,6 @@ import java.util.StringJoiner;
  */
 public final class K implements Term {
     private static final String NAME = "K";
-    private static final int HASHCODE = new Object().hashCode();
     /**
      * A singleton {@link K}
      */
@@ -43,15 +43,13 @@ public final class K implements Term {
     }
 
     /**
-     * @return a hash code value for this object.
      *
-     * @see Object#equals(Object)
-     * @see System#identityHashCode
+     * @return the singleton instance of {@link K}
      */
-    @Override
-    public int hashCode() {
-        return HASHCODE;
+    public static final K K() {
+        return K;
     }
+
 
     /**
      * @param obj the reference object with which to compare.
@@ -76,12 +74,6 @@ public final class K implements Term {
         return K(x);
     }
 
-    /**
-     * @return an instance of {@link K}
-     */
-    public final K apply() {
-        return K;
-    }
 
     /**
      * @param x
@@ -107,8 +99,12 @@ public final class K implements Term {
 
         @Override
         public boolean equals(final Object o) {
-            if (this == o) {return true;}
-            if (!(o instanceof Kx)) {return false;}
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof Kx)) {
+                return false;
+            }
             final Kx kx = (Kx) o;
             return x.equals(kx.x);
         }

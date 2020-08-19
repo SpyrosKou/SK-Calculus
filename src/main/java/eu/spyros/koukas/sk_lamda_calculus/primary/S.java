@@ -29,7 +29,6 @@ import java.util.Objects;
  */
 public final class S implements Term {
     private static final String NAME = "S";
-    private static final int HASHCODE = new Object().hashCode();
     /**
      * A singleton {@link S}
      */
@@ -40,17 +39,6 @@ public final class S implements Term {
      */
     private S() {
 
-    }
-
-    /**
-     * @return a hash code value for this object.
-     *
-     * @see Object#equals(Object)
-     * @see System#identityHashCode
-     */
-    @Override
-    public int hashCode() {
-        return HASHCODE;
     }
 
     /**

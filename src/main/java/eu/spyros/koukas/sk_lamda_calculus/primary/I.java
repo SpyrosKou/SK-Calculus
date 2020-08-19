@@ -34,7 +34,6 @@ import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
  * @author Spyros Koukas
  */
 public final class I implements Term {
-    private static final int HASHCODE = new Object().hashCode();
     private static final String NAME ="I";
     /**
      * A Singleton {@link I}
@@ -47,17 +46,6 @@ public final class I implements Term {
     private I(){
     }
 
-    /**
-     * @return a hash code value for this object.
-     *
-     *
-     * @see Object#equals(Object)
-     * @see System#identityHashCode
-     */
-    @Override
-    public int hashCode() {
-        return HASHCODE;
-    }
 
     /**
      * @param obj the reference object with which to compare.
