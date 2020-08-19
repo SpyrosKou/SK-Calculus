@@ -21,9 +21,9 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  */
 import junit.framework.TestCase;
 
-import static eu.spyros.koukas.sk_lamda_calculus.primary.I.I;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.S.S;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.I.*;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
 
 /**
  * Created at 2020-08-06

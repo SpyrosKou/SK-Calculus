@@ -1,4 +1,4 @@
-package eu.spyros.koukas.sk_lamda_calculus.primary;
+package eu.spyros.koukas.sk_lamda_calculus.booleanlogic;
 /**
  * SK Calculus
  *     A SK Combinator Calculus written in Java
@@ -19,37 +19,38 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
-import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.F.S;
+import eu.spyros.koukas.sk_lamda_calculus.primary.K;
+import eu.spyros.koukas.sk_lamda_calculus.primary.S;
+import eu.spyros.koukas.sk_lamda_calculus.primary.Term;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
+import java.util.Objects;
 
 /**
- * The identity Lambda Combinator.
- * Always returns its argument.
- * Implemented in SK-Calculus as SKK.
- * While it is an optional combinator, it is included in the same package with {@link F} and {@link K} combinators.
- * This is because it is often included together with S and K combinators in SKI Combinator Calculus.
- * Created at 2020-08-01
- *
+ * The F combinator, which is a symbol for False in Boolean Logic.
+ * F is equal to and implemented by {@link S}{@link K}.
+ * This class is useful for writing readable boolean logic in SK Calculus and printing clearer messages.
+ * The {@link F#toString()}  returns "F" however since F is implemented by SK, after applying the first argument the toString methods from the underlying S or K methods will be returned.
+ * Created at 2020-08-19
  * @author Spyros Koukas
  */
-public final class I implements Term {
+public final class F implements Term {
+    private static final String NAME = "F";
     private static final int HASHCODE = new Object().hashCode();
-    private static final String NAME ="I";
     /**
-     * A Singleton {@link I}
+     * A singleton {@link F}
      */
-    public static final I I=new I();
+    public static final F F = new F();
 
     /**
      * Hidden constructor
      */
-    private I(){
+    private F() {
+
     }
 
     /**
      * @return a hash code value for this object.
-     *
      *
      * @see Object#equals(Object)
      * @see System#identityHashCode
@@ -73,38 +74,38 @@ public final class I implements Term {
     }
 
 
-
     /**
+     * @param x
      *
-     * @param term
      * @return
      */
-    public static final  Term I(final Term term) {
-        return S(K).apply(K).apply(term);
-        //return term;
+    public static final Term F(final Term x) {
+        return S(K(x));
     }
 
     /**
-     *
-     * @return an instance of {@link I}
+     * @return an instance of {@link F}
      */
-    public static final  I I() {
-        return I;
+    public static final F F() {
+        return F;
     }
 
 
     /**
+     * Applies this function to the given argument.
      *
-     * @param term
-     * @return
+     * @param term the function argument
+     *
+     * @return the function result
      */
     @Override
-    public Term apply(final Term term) {
-        return I(term);
+    public final Term apply(final Term term) {
+        return S(term);
     }
 
     @Override
     public String toString() {
         return NAME;
     }
+
 }
