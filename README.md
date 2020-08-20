@@ -29,6 +29,8 @@ S and K combinators can compose I as SKK or SKS, thus rendering the I combinator
         System.out.println(K(S).apply(I)); //Renders "S"
         System.out.println(K(K)); //Renders "K(K)",as the second argument has not been applied yet.
 
+- Boolean Logic Implementation
+
 ## Scope & Motivation
 [SK Calculus](https://github.com/SpyrosKou/SK-Calculus) was written for experimentation and study of the SK Calculus in Java.
 As SK Calculus is turing complete, it is also theoretically possible to create turing machine by using SK Calculus. Although an interesting idea, an attempt to implement a turing machine that would need to fine tune aspects of this implementation such as the stack memory usage. 

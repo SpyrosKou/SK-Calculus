@@ -1,6 +1,5 @@
 package eu.spyros.koukas.sk_lamda_calculus.booleanlogic;
 
-import eu.spyros.koukas.sk_lamda_calculus.primary.K;
 import junit.framework.TestCase;
 
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.*;
@@ -22,16 +21,6 @@ public class TTest extends TestCase {
         assertEquals(T().hashCode(), T(T).apply(F).hashCode());
     }
 
-    /**
-     * {@link eu.spyros.koukas.sk_lamda_calculus.primary.K#hashCode()}} and {@link T#hashCode()} should be equal
-     */
-    public void testKHashCode() {
-        assertEquals(K.hashCode(), T().hashCode());
-        assertEquals(K().hashCode(), T().hashCode());
-
-        assertEquals(K().hashCode(), T(T).apply(T).hashCode());
-        assertEquals(K().hashCode(), T(T).apply(F).hashCode());
-    }
 
     public void testEquals() {
         assertEquals(T, T());
@@ -45,30 +34,6 @@ public class TTest extends TestCase {
 
         assertFalse(F().equals(T(T).apply(T)));
         assertFalse(F().equals(T(T).apply(F)));
-    }
-    /**
-     * The singletton  instances of {@link eu.spyros.koukas.sk_lamda_calculus.primary.K} and {@link T} should be equal.
-     */
-    public void testKEquals() {
-
-        assertEquals(T, K());
-        assertEquals(T(), K());
-
-        assertEquals(T(), K(K).apply(K));
-        assertEquals(T(), K(K).apply(F));
-        //while T.equals(K), K.equals(T) cannot be true unless K implementation know about T or T inherits K.
-        //TODO decide how to implement or model T (another solution would be to directly use K instead of T, which is only needed for pretty printing.)
-        assertEquals(K, T());
-        assertEquals(K(), T());
-
-        assertEquals(K(), T(T).apply(T));
-        assertEquals(K(), T(T).apply(F));
-
-        assertFalse(F.equals(K()));
-        assertFalse(F().equals(K()));
-
-        assertFalse(F().equals(K(K).apply(K)));
-        assertFalse(F().equals(K(K).apply(F)));
     }
 
     public void testTmethod() {

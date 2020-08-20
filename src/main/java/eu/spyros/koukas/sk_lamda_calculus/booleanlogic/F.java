@@ -19,18 +19,22 @@ package eu.spyros.koukas.sk_lamda_calculus.booleanlogic;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 import eu.spyros.koukas.sk_lamda_calculus.primary.K;
 import eu.spyros.koukas.sk_lamda_calculus.primary.S;
 import eu.spyros.koukas.sk_lamda_calculus.primary.Term;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
-import java.util.Objects;
+
+import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.S.S;
 
 /**
  * The F combinator, which is a symbol for False in Boolean Logic.
  * F is equal to and implemented by {@link S}{@link K}.
+ *
  * This class is useful for writing readable boolean logic in SK Calculus and printing clearer messages.
  * The {@link F#toString()}  returns "F" however since F is implemented by SK, after applying the first argument the toString methods from the underlying S or K methods will be returned.
+ * Since {@link T} is actually {@link K}, {@link T} is used, hence {@link T#toString()} is used instead of {@link K#toString()}.
+ *
  * Created at 2020-08-19
  * @author Spyros Koukas
  */
