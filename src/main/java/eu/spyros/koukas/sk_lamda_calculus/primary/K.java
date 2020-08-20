@@ -21,7 +21,6 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  */
 
 import java.util.Objects;
-import java.util.StringJoiner;
 
 /**
  * Created at 2020-08-01

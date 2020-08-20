@@ -20,8 +20,8 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
+import static eu.spyros.koukas.sk_lamda_calculus.primary.S.S;
 
 /**
  * The identity Lambda Combinator.
