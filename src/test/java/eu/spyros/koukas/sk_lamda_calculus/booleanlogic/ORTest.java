@@ -20,8 +20,21 @@ public class ORTest extends TestCase {
 
         assertEquals(OR, K);
         assertEquals(OR, K());
+
         assertEquals(OR(), K);
         assertEquals(OR(), K());
+
+        assertEquals(T, K);
+        assertEquals(T, K());
+
+        assertEquals(T(), K);
+        assertEquals(T(), K());
+
+        assertEquals(OR, T);
+        assertEquals(OR, T());
+
+        assertEquals(OR(), T);
+        assertEquals(OR(), T());
     }
 
     public void testORmethod() {
