@@ -66,7 +66,7 @@ public final class NOT implements Term {
 
     /**
      *
-     * @return "T"
+     * @return "NOT"
      */
     @Override
     public String toString() {

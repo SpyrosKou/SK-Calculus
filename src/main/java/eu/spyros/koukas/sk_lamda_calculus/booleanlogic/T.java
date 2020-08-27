@@ -16,43 +16,12 @@ import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
  *
  * @author Spyros Koukas
  */
-public final class T implements Term {
+public final class T extends K implements Term {
     private static final String NAME = "T";
     /**
      * A singleton {@link T}
      */
     public static final T T = new T();
-
-    /**
-     * Hidden constructor
-     */
-    private T() {
-
-    }
-
-    /**
-     * @param obj the reference object with which to compare.
-     *
-     * @return {@code true} if this object is the same as the obj
-     * argument; {@code false} otherwise.
-     *
-     * @see #hashCode()
-     */
-    @Override
-    public boolean equals(final Object obj) {
-        return obj != null && (this.getClass().isInstance(obj));
-    }
-
-
-    /**
-     * @param x
-     *
-     * @return
-     */
-    public final Term apply(final Term x) {
-        //This is where T is implemented as K.
-        return K.apply(x);
-    }
 
 
     public static final Term T() {

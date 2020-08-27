@@ -27,7 +27,7 @@ import java.util.Objects;
  *
  * @author Spyros Koukas
  */
-public final class K implements Term {
+public class K implements Term {
     private static final String NAME = "K";
     /**
      * A singleton {@link K}
@@ -37,7 +37,7 @@ public final class K implements Term {
     /**
      * Hidden constructor
      */
-    private K() {
+    protected K() {
 
     }
 
@@ -51,16 +51,17 @@ public final class K implements Term {
 
 
     /**
+     *
      * @param obj the reference object with which to compare.
      *
      * @return {@code true} if this object is the same as the obj
      * argument; {@code false} otherwise.
-     *
+     * As Is true for all non null objects that extend {@link K}
      * @see #hashCode()
      */
     @Override
-    public boolean equals(final Object obj) {
-        return obj != null && this.getClass().isInstance(obj);
+    public final boolean equals(final Object obj) {
+        return obj != null && K.getClass().isInstance(obj);
     }
 
 
@@ -97,7 +98,7 @@ public final class K implements Term {
         private final Term x;
 
         @Override
-        public boolean equals(final Object o) {
+        public final boolean equals(final Object o) {
             if (this == o) {
                 return true;
             }
@@ -109,7 +110,7 @@ public final class K implements Term {
         }
 
         @Override
-        public int hashCode() {
+        public final int hashCode() {
             return Objects.hash(x);
         }
 
@@ -131,7 +132,7 @@ public final class K implements Term {
          * @return {{@link Kx#x}}
          */
         @Override
-        public Term apply(final Term y) {
+        public final Term apply(final Term y) {
             return this.x;
         }
 

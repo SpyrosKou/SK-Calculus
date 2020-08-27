@@ -27,7 +27,7 @@ import java.util.Objects;
  *
  * @author Spyros Koukas
  */
-public final class S implements Term {
+public class S implements Term {
     private static final String NAME = "S";
     /**
      * A singleton {@link S}
