@@ -30,6 +30,13 @@ S and K combinators can compose I as SKK or SKS, thus rendering the I combinator
         System.out.println(K(K)); //Renders "K(K)",as the second argument has not been applied yet.
 
 - Boolean Logic Implementation
+     - Implemented T(true) and F(false)
+         - T is implemented by and equals to K
+     - Implemented some Prefix, Postfix and Infix Operators
+         - Prefix: AND, OR, NOT
+         - Infix: OR
+             - Infix OR is implemented by, and equals to K.
+         - Postfix: AND
 
 ## Scope & Motivation
 [SK Calculus](https://github.com/SpyrosKou/SK-Calculus) was written for experimentation and study of the SK Calculus in Java.
