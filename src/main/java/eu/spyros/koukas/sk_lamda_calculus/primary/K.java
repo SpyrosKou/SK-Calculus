@@ -29,6 +29,7 @@ import java.util.Objects;
  */
 public class K implements Term {
     private static final String NAME = "K";
+
     /**
      * A singleton {@link K}
      */
@@ -64,6 +65,14 @@ public class K implements Term {
         return obj != null && K.getClass().isInstance(obj);
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
+    public final int hashCode() {
+        return this.getClass().getSimpleName().hashCode();
+    }
 
     /**
      * @param x

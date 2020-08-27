@@ -60,7 +60,14 @@ public final class I implements Term {
         return obj != null && this.getClass().isInstance(obj);
     }
 
-
+    /**
+     *
+     * @return
+     */
+    @Override
+    public final int hashCode() {
+        return this.getClass().getSimpleName().hashCode();
+    }
 
     /**
      *
