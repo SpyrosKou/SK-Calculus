@@ -27,7 +27,7 @@ import java.util.Objects;
  *
  * @author Spyros Koukas
  */
-public class S implements Term {
+public final class S implements Term {
     private static final String NAME = "S";
     /**
      * A singleton {@link S}
@@ -50,7 +50,7 @@ public class S implements Term {
      * @see #hashCode()
      */
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         return obj != null && this.getClass().isInstance(obj);
     }
 
@@ -96,7 +96,7 @@ public class S implements Term {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return NAME;
     }
 
@@ -108,7 +108,7 @@ public class S implements Term {
         private final Term x;
 
         @Override
-        public boolean equals(final Object o) {
+        public final boolean equals(final Object o) {
             if (this == o) {return true;}
             if (!(o instanceof S.Sx)) {return false;}
             final S.Sx sx = (S.Sx) o;
@@ -116,7 +116,7 @@ public class S implements Term {
         }
 
         @Override
-        public int hashCode() {
+        public final int hashCode() {
             return Objects.hash(x);
         }
 
@@ -136,7 +136,7 @@ public class S implements Term {
          * @return
          */
         @Override
-        public Term apply(final Term y) {
+        public final Term apply(final Term y) {
             return new Sxy(this, y);
         }
 

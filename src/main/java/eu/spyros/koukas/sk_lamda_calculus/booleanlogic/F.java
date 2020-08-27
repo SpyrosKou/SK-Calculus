@@ -1,23 +1,23 @@
 package eu.spyros.koukas.sk_lamda_calculus.booleanlogic;
 /**
  * SK Calculus
- *     A SK Combinator Calculus written in Java
- *     https://github.com/SpyrosKou/SK-Calculus
- *     Copyright (C) 2020  Spyros Koukas
- *
- *
- *     This program is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     This program is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * A SK Combinator Calculus written in Java
+ * https://github.com/SpyrosKou/SK-Calculus
+ * Copyright (C) 2020  Spyros Koukas
+ * <p>
+ * <p>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 import eu.spyros.koukas.sk_lamda_calculus.primary.K;
@@ -38,7 +38,7 @@ import static eu.spyros.koukas.sk_lamda_calculus.primary.S.S;
  * Created at 2020-08-19
  * @author Spyros Koukas
  */
-public final class F implements Term {
+public class F implements Term {
     private static final String NAME = "F";
     /**
      * A singleton {@link F}
@@ -46,28 +46,30 @@ public final class F implements Term {
     public static final F F = new F();
 
     /**
-     * Hidden constructor
+     * constructor
      */
-    private F() {
+    protected F() {
 
     }
 
 
     /**
+     *
      * @param obj the reference object with which to compare.
      *
      * @return {@code true} if this object is the same as the obj
      * argument; {@code false} otherwise.
-     *
+     * As Is true for all non null objects that extend {@link F}
      * @see #hashCode()
      */
     @Override
-    public boolean equals(final Object obj) {
-        return obj != null && this.getClass().isInstance(obj);
+    public final boolean equals(final Object obj) {
+        return obj != null && F.getClass().isInstance(obj);
     }
 
     /**
-     *
+     * All objects instances that extend this class shall have the same hashcode.
+     * This in accordance to the {@link #equals(Object)} method implementation.
      * @return
      */
     @Override
@@ -76,12 +78,12 @@ public final class F implements Term {
     }
 
     /**
-     * @param x
+     * @param term
      *
      * @return
      */
-    public static final Term F(final Term x) {
-        return S(K).apply(x);
+    public static final Term F(final Term term) {
+        return F.apply(term);
     }
 
     /**
@@ -101,7 +103,7 @@ public final class F implements Term {
      */
     @Override
     public final Term apply(final Term term) {
-        return F(term);
+        return S(K).apply(term);
     }
 
     @Override

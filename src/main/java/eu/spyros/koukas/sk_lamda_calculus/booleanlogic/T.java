@@ -42,7 +42,7 @@ public final class T extends K implements Term {
      * @return "T"
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return NAME;
     }
 

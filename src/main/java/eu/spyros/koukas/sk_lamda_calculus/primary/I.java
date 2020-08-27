@@ -56,7 +56,7 @@ public final class I implements Term {
      * @see #hashCode()
      */
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         return obj != null && this.getClass().isInstance(obj);
     }
 
@@ -94,7 +94,7 @@ public final class I implements Term {
      * @return
      */
     @Override
-    public Term apply(final Term term) {
+    public final Term apply(final Term term) {
         return I(term);
     }
 

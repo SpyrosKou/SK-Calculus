@@ -1,9 +1,9 @@
-package eu.spyros.koukas.sk_lamda_calculus.booleanlogic;
+package eu.spyros.koukas.sk_lamda_calculus.booleanlogic.infix;
 
 import junit.framework.TestCase;
 
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
-import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.OR.OR;
+import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.infix.OR.OR;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.T;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
 

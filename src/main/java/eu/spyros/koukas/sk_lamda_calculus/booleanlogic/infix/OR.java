@@ -1,4 +1,4 @@
-package eu.spyros.koukas.sk_lamda_calculus.booleanlogic;
+package eu.spyros.koukas.sk_lamda_calculus.booleanlogic.infix;
 
 import eu.spyros.koukas.sk_lamda_calculus.primary.K;
 import eu.spyros.koukas.sk_lamda_calculus.primary.Term;
@@ -6,7 +6,7 @@ import eu.spyros.koukas.sk_lamda_calculus.primary.Term;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.T;
 
 /**
- * The boolean logic OR function.
+ * The boolean logic OR function implemented as an infix operator.
  *
  *
  * Created at 2020-08-20
@@ -49,7 +49,7 @@ public final class OR extends K implements Term {
      * @return "OR"
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return NAME;
     }
 
