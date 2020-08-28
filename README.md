@@ -40,7 +40,7 @@ S and K combinators can compose I as SKK or SKS, thus rendering the I combinator
 
 ## Scope & Motivation
 [SK Calculus](https://github.com/SpyrosKou/SK-Calculus) was written for experimentation and study of the SK Calculus in Java.
-As SK Calculus is turing complete, it is also theoretically possible to create turing machine by using SK Calculus. Although an interesting idea, an attempt to implement a turing machine that would need to fine tune aspects of this implementation such as the stack memory usage. 
+As SK Calculus is turing complete, it is also theoretically possible to create a turing machine by using SK Calculus. Although creating a turing machine is an interesting idea, an attempt to implement a turing machine using this project would need to fine tune aspects such as the stack memory usage. 
 A set of video lectures, presentation and javascript demonstrations of lambda calculus , that also mention the SK Calculus, can be found here: [Lambda Talk](https://github.com/glebec/lambda-talk) .
 
 ## About
