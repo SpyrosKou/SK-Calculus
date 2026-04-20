@@ -8,3 +8,4 @@ Changelog
 * Bump junit to 6.0.3
 * Migrate tests to junit 6.0.3 style (avoid vintage mode)
 * Add github workflows
+* Add Iota and tests
