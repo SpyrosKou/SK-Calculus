@@ -19,36 +19,38 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.S.S;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-10
  *
  * @author Spyros Koukas
  */
-public class IEquivalenceTest extends TestCase {
+public class IEquivalenceTest {
 
+    @Test
     public void testEffectiveIReplacement() {
 
-        //SKK===I
-        assertEquals(S(K).apply(K).apply(K),K );
-        assertEquals(S(K).apply(K).apply(S),S );
+        // SKK===I
+        assertEquals(S(K).apply(K).apply(K), K);
+        assertEquals(S(K).apply(K).apply(S), S);
         {
-            final Term I=S(K).apply(K);
-            assertEquals(I.apply(K),K );
-            assertEquals(I.apply(S),S );
+            final Term I = S(K).apply(K);
+            assertEquals(I.apply(K), K);
+            assertEquals(I.apply(S), S);
         }
-        //SKS===I
-        assertEquals(S(K).apply(S).apply(K),K );
-        assertEquals(S(K).apply(S).apply(S),S );
+
+        // SKS===I
+        assertEquals(S(K).apply(S).apply(K), K);
+        assertEquals(S(K).apply(S).apply(S), S);
         {
-            final Term I=S(K).apply(S);
-            assertEquals(I.apply(K),K );
-            assertEquals(I.apply(S),S );
+            final Term I = S(K).apply(S);
+            assertEquals(I.apply(K), K);
+            assertEquals(I.apply(S), S);
         }
     }
-
 }

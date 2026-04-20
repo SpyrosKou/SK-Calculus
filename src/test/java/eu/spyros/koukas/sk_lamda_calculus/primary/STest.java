@@ -19,42 +19,48 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.I.*;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-06
  *
  * @author Spyros
  */
-public class STest extends TestCase {
+public class STest {
 
+    @Test
     public void testToString() {
         assertEquals("S", S.toString());
         assertEquals(I.toString(), S(I).apply(I).apply(I).toString());
         assertEquals(K.toString(), S(K).apply(S).apply(K).toString());
         assertEquals(K.toString(), S(K).apply(I).apply(K).toString());
 
-        //SKK===I
-        assertEquals(K.toString(),S(K).apply(K).apply(K).toString() );
-        assertEquals(I.toString(),S(K).apply(K).apply(I).toString());
-        assertEquals(S.toString(),S(K).apply(K).apply(S).toString());
+        // SKK===I
+        assertEquals(K.toString(), S(K).apply(K).apply(K).toString());
+        assertEquals(I.toString(), S(K).apply(K).apply(I).toString());
+        assertEquals(S.toString(), S(K).apply(K).apply(S).toString());
 
-        //SKS===I
-        assertEquals(K.toString(),S(K).apply(S).apply(K).toString() );
-        assertEquals(I.toString(),S(K).apply(S).apply(I).toString());
-        assertEquals(S.toString(),S(K).apply(S).apply(S).toString());
+        // SKS===I
+        assertEquals(K.toString(), S(K).apply(S).apply(K).toString());
+        assertEquals(I.toString(), S(K).apply(S).apply(I).toString());
+        assertEquals(S.toString(), S(K).apply(S).apply(S).toString());
     }
 
     /**
      * Not an actual test. Just prints some demo values
      */
+    @Disabled("Not an actual test. Just prints some demo values")
+    @Test
     public void testPrint() {
-
         System.out.println(S(I));
         System.out.println(S(I).apply(I));
         System.out.println(S(I).apply(I).apply(I));
@@ -75,51 +81,49 @@ public class STest extends TestCase {
         System.out.println(S(K).apply(S).apply(K).apply(S));
     }
 
+    @Test
     public void testApply() {
-
         assertEquals(I(I(I(I(I(I))))), I);
         assertEquals(I(S), S);
         assertEquals(I(K), K);
     }
 
-    /**
-     *
-     */
+    @Test
     public void test_equals() {
         assertEquals(I, I);
         assertNotSame(I, K);
         assertNotSame(I, S);
     }
 
-    /**
-     *
-     */
+    @Test
     public void test_hashcode() {
         assertEquals(I.hashCode(), I.hashCode());
         assertNotSame(I.hashCode(), K.hashCode());
         assertNotSame(I.hashCode(), S.hashCode());
     }
 
+    @Test
     public void testEffectiveIReplacement() {
-
-        //SKK===I
-        assertEquals(S(K).apply(K).apply(K),K );
-        assertEquals(S(K).apply(K).apply(S),S );
+        // SKK===I
+        assertEquals(S(K).apply(K).apply(K), K);
+        assertEquals(S(K).apply(K).apply(S), S);
         {
-            final Term I=S(K).apply(K);
-            assertEquals(I.apply(K),K );
-            assertEquals(I.apply(S),S );
+            final Term I = S(K).apply(K);
+            assertEquals(I.apply(K), K);
+            assertEquals(I.apply(S), S);
         }
-        //SKS===I
-        assertEquals(S(K).apply(S).apply(K),K );
-        assertEquals(S(K).apply(S).apply(S),S );
+
+        // SKS===I
+        assertEquals(S(K).apply(S).apply(K), K);
+        assertEquals(S(K).apply(S).apply(S), S);
         {
-            final Term I=S(K).apply(S);
-            assertEquals(I.apply(K),K );
-            assertEquals(I.apply(S),S );
+            final Term I = S(K).apply(S);
+            assertEquals(I.apply(K), K);
+            assertEquals(I.apply(S), S);
         }
     }
 
+    @Test
     public void testSingleton() {
         assertSame(S, S());
     }

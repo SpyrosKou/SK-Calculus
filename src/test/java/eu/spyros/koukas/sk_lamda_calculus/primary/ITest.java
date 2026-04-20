@@ -19,50 +19,62 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.primary.I.*;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.S.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-06
  *
  * @author Spyros Koukas
  */
-public class ITest extends TestCase {
+public class ITest {
 
+    /**
+     * Not an actual test. Just prints demo values
+     */
+    @Test
     public void testPrint() {
         System.out.println(I(I(I(I(I(I))))));
         System.out.println(I(S));
         System.out.println(I(K));
     }
 
-    public void testToString(){
-        assertEquals(I(I(I(I(I(I))))).toString(),I.toString());
-        assertEquals(I(S).toString(),S.toString());
-        assertEquals(I(K).toString(),K.toString());
+    @Test
+    public void testToString() {
+        assertEquals(I(I(I(I(I(I))))).toString(), I.toString());
+        assertEquals(I(S).toString(), S.toString());
+        assertEquals(I(K).toString(), K.toString());
     }
 
+    @Test
     public void testApply() {
         assertEquals(I(I(I(I(I(I))))), I);
         assertEquals(I(S), S);
         assertEquals(I(K), K);
     }
 
+    @Test
     public void test_equals() {
         assertEquals(I, I);
         assertNotSame(I, K);
         assertNotSame(I, S);
     }
 
-
+    @Test
     public void test_hashcode() {
         assertEquals(I.hashCode(), I.hashCode());
         assertNotSame(I.hashCode(), K.hashCode());
         assertNotSame(I.hashCode(), S.hashCode());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(I, I());
     }

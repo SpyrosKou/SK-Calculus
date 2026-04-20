@@ -19,20 +19,23 @@ package eu.spyros.koukas.sk_lamda_calculus.booleanlogic.infix;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.infix.OR.OR;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.T;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-20
  *
  * @author Spyros Koukas
  */
-public class ORTest extends TestCase {
+public class ORTest {
 
+    @Test
     public void testEquals() {
         assertEquals(OR, OR());
         assertEquals(OR(), OR);
@@ -56,13 +59,15 @@ public class ORTest extends TestCase {
         assertEquals(OR(), T());
     }
 
-    public void testORmethod() {
+    @Test
+    public void testOrMethod() {
         assertEquals(F, F(OR()).apply(F));
         assertEquals(T, T(OR()).apply(T));
         assertEquals(T, T(OR()).apply(F));
         assertEquals(T, F(OR()).apply(T));
     }
 
+    @Test
     public void testApply() {
         assertEquals(F, F.apply(OR).apply(F));
         assertEquals(T, T.apply(OR).apply(T));
@@ -70,6 +75,7 @@ public class ORTest extends TestCase {
         assertEquals(T, F.apply(OR).apply(T));
     }
 
+    @Test
     public void testOR() {
         assertEquals(F, F(OR()).apply(F));
         assertEquals(T, T(OR()).apply(T));
@@ -77,11 +83,13 @@ public class ORTest extends TestCase {
         assertEquals(T, F(OR()).apply(T));
     }
 
+    @Test
     public void testToString() {
         assertEquals(OR.toString(), OR.toString());
         assertEquals(OR.toString(), OR().toString());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(OR, OR());
     }

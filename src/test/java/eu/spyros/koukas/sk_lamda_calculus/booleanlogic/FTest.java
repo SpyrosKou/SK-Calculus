@@ -24,15 +24,18 @@ import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.*;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.*;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-19
  *
  * @author Spyros Koukas
  */
-public class FTest extends TestCase {
+public class FTest {
 
+    @Test
     public void testF() {
         assertEquals(F, F().apply(T).apply(F));
         assertEquals(T, F().apply(F).apply(T));
@@ -40,6 +43,7 @@ public class FTest extends TestCase {
         assertEquals(S, F().apply(F).apply(S));
     }
 
+    @Test
     public void testFmethod() {
         assertEquals(F, F(T).apply(F));
         assertEquals(T, F(F).apply(T));
@@ -47,12 +51,15 @@ public class FTest extends TestCase {
         assertEquals(S, F(F).apply(S));
     }
 
+    @Test
     public void testApply() {
         assertEquals(F, F.apply(T).apply(F));
         assertEquals(T, F.apply(F).apply(T));
         assertEquals(K, F.apply(F).apply(K));
         assertEquals(S, F.apply(F).apply(S));
     }
+
+    @Test
     public void testEquals() {
         assertEquals(F, F());
         assertEquals(F(), F());
@@ -67,6 +74,7 @@ public class FTest extends TestCase {
         assertFalse(F().equals(F(F).apply(T)));
     }
 
+    @Test
     public void testHashCode() {
         assertEquals(F.hashCode(), F().hashCode());
         assertEquals(F().hashCode(), F().hashCode());
@@ -75,12 +83,14 @@ public class FTest extends TestCase {
         assertEquals(F().hashCode(), F(F).apply(F).hashCode());
     }
 
+    @Test
     public void testToString() {
         final String expectedName = "F";
         assertEquals(expectedName, F.toString());
         assertEquals(expectedName, F().toString());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(F, F());
     }

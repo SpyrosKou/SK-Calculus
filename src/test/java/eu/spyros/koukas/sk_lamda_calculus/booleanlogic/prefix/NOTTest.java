@@ -19,47 +19,52 @@ package eu.spyros.koukas.sk_lamda_calculus.booleanlogic.prefix;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.T;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.prefix.NOT.NOT;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-27
  *
  * @author Spyros Koukas
  */
-public class NOTTest extends TestCase {
+public class NOTTest {
 
-
+    @Test
     public void testEquals() {
         assertEquals(NOT, NOT());
         assertEquals(NOT(), NOT());
     }
 
-    public void testNOTmethod() {
+    @Test
+    public void testNOMethod() {
         assertEquals(T, NOT().apply(F));
         assertEquals(F, NOT().apply(T));
     }
 
+    @Test
     public void testApply() {
         assertEquals(T, NOT.apply(F));
         assertEquals(F, NOT.apply(T));
-
     }
 
+    @Test
     public void testNOT() {
         assertEquals(T, NOT(F));
         assertEquals(F, NOT(T));
     }
 
+    @Test
     public void testToString() {
         assertEquals(NOT.toString(), NOT.toString());
         assertEquals(NOT.toString(), NOT().toString());
-
     }
 
+    @Test
     public void testSingleton() {
         assertSame(NOT, NOT());
     }

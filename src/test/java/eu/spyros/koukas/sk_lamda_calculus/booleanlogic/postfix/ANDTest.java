@@ -19,19 +19,22 @@ package eu.spyros.koukas.sk_lamda_calculus.booleanlogic.postfix;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.postfix.AND.AND;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.T;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-27
  *
  * @author Spyros Koukas
  */
-public class ANDTest extends TestCase {
+public class ANDTest {
 
+    @Test
     public void testEquals() {
         assertEquals(AND, AND());
         assertEquals(AND(), AND);
@@ -47,9 +50,9 @@ public class ANDTest extends TestCase {
 
         assertEquals(F(), AND);
         assertEquals(F(), AND());
-
     }
 
+    @Test
     public void testANDmethod() {
         assertEquals(F, F().apply(F).apply(AND()));
         assertEquals(T, T().apply(T).apply(AND()));
@@ -57,6 +60,7 @@ public class ANDTest extends TestCase {
         assertEquals(F, F().apply(T).apply(AND()));
     }
 
+    @Test
     public void testApply() {
         assertEquals(F, F.apply(F).apply(AND));
         assertEquals(T, T.apply(T).apply(AND));
@@ -64,6 +68,7 @@ public class ANDTest extends TestCase {
         assertEquals(F, F.apply(T).apply(AND));
     }
 
+    @Test
     public void testAND() {
         assertEquals(F, F().apply(F).apply(AND));
         assertEquals(T, T().apply(T).apply(AND));
@@ -71,11 +76,13 @@ public class ANDTest extends TestCase {
         assertEquals(F, F().apply(T).apply(AND));
     }
 
+    @Test
     public void testToString() {
         assertEquals(AND.toString(), AND.toString());
         assertEquals(AND.toString(), AND().toString());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(AND, AND());
     }

@@ -19,21 +19,22 @@ package eu.spyros.koukas.sk_lamda_calculus.booleanlogic.prefix;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.T;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.prefix.OR.OR;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-27
  *
  * @author Spyros Koukas
  */
-public class ORTest extends TestCase {
+public class ORTest {
 
-
+    @Test
     public void testORmethod() {
         assertEquals(F, OR().apply(F).apply(F));
         assertEquals(T, OR().apply(T).apply(T));
@@ -41,6 +42,7 @@ public class ORTest extends TestCase {
         assertEquals(T, OR().apply(F).apply(T));
     }
 
+    @Test
     public void testApply() {
         assertEquals(F, OR.apply(F).apply(F));
         assertEquals(T, OR.apply(T).apply(T));
@@ -48,6 +50,7 @@ public class ORTest extends TestCase {
         assertEquals(T, OR.apply(F).apply(T));
     }
 
+    @Test
     public void testOR() {
         assertEquals(F, OR(F).apply(F));
         assertEquals(T, OR(T).apply(T));
@@ -55,11 +58,13 @@ public class ORTest extends TestCase {
         assertEquals(T, OR(F).apply(T));
     }
 
+    @Test
     public void testToString() {
         assertEquals(OR.toString(), OR.toString());
         assertEquals(OR.toString(), OR().toString());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(OR, OR());
     }

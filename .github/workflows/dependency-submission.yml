@@ -1,0 +1,30 @@
+name: Dependency Submission
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+concurrency:
+  group: dependency-submission-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+    dependency-submission:
+      runs-on: ubuntu-22.04
+      permissions:
+        contents: write
+
+      steps:
+        - name: Checkout sources
+          uses: actions/checkout@v6
+        
+        - name: Set up Java
+          uses: actions/setup-java@v5
+          with:
+            java-version: '25'
+            distribution: 'temurin'
+
+        # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
+        - name: Generate and submit dependency graph
+          uses: gradle/actions/dependency-submission@v6

@@ -19,11 +19,13 @@ package eu.spyros.koukas.sk_lamda_calculus.booleanlogic.prefix;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.F;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.T;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.prefix.AND.AND;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Testing the prefix AND
@@ -31,8 +33,9 @@ import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.prefix.AND.AND;
  *
  * @author Spyros Koukas
  */
-public class ANDTest extends TestCase {
+public class ANDTest {
 
+    @Test
     public void testANDmethod() {
         assertEquals(F, AND(F()).apply(F));
         assertEquals(T, AND(T()).apply(T));
@@ -40,6 +43,7 @@ public class ANDTest extends TestCase {
         assertEquals(F, AND(F()).apply(T));
     }
 
+    @Test
     public void testApply() {
         assertEquals(F, AND.apply(F).apply(F));
         assertEquals(T, AND.apply(T).apply(T));
@@ -47,6 +51,7 @@ public class ANDTest extends TestCase {
         assertEquals(F, AND.apply(F).apply(T));
     }
 
+    @Test
     public void testAND() {
         assertEquals(F, AND().apply(F()).apply(F));
         assertEquals(T, AND().apply(T()).apply(T));
@@ -54,11 +59,13 @@ public class ANDTest extends TestCase {
         assertEquals(F, AND().apply(F()).apply(T));
     }
 
+    @Test
     public void testToString() {
         assertEquals(AND.toString(), AND.toString());
         assertEquals(AND.toString(), AND().toString());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(AND, AND());
     }

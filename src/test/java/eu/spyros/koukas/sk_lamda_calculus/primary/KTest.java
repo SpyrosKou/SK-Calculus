@@ -19,34 +19,43 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.primary.I.I;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.S.S;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-10
  *
  * @author Spyros Koukas
  */
-public class KTest extends TestCase {
+public class KTest {
 
+    /**
+     * Not an actual test. Just prints demo values
+     */
+    @Test
     public void testPrint() {
-        System.out.println(K(I).apply(I));//Renders "I"
-        System.out.println(K(S));//Renders "K(S)"
-        System.out.println(K(S).apply(I));//Renders "S"
-        System.out.println(K(K));//Renders "K(K)"
+        System.out.println(K(I).apply(I)); // Renders "I"
+        System.out.println(K(S)); // Renders "K(S)"
+        System.out.println(K(S).apply(I)); // Renders "S"
+        System.out.println(K(K)); // Renders "K(K)"
     }
 
+    @Test
     public void testToString() {
-        assertEquals(K(I).apply(I).toString(),I.toString());
-        assertEquals(K(S).apply(I).toString(),S.toString());
-        assertEquals(K(K).apply(I).toString(),K.toString());
+        assertEquals(K(I).apply(I).toString(), I.toString());
+        assertEquals(K(S).apply(I).toString(), S.toString());
+        assertEquals(K(K).apply(I).toString(), K.toString());
     }
 
+    @Test
     public void testApply() {
-
         assertEquals(K(I).apply(I), I);
         assertEquals(K(I).apply(S), I);
         assertEquals(K(I).apply(K), I);
@@ -60,24 +69,21 @@ public class KTest extends TestCase {
         assertEquals(K(K).apply(K), K);
     }
 
-    /**
-     *
-     */
+    @Test
     public void test_equals() {
         assertEquals(I, I);
         assertNotSame(I, K);
         assertNotSame(I, S);
     }
 
-    /**
-     *
-     */
+    @Test
     public void test_hashcode() {
         assertEquals(I.hashCode(), I.hashCode());
         assertNotSame(I.hashCode(), K.hashCode());
         assertNotSame(I.hashCode(), S.hashCode());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(K, K());
     }

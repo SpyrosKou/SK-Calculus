@@ -19,19 +19,23 @@ package eu.spyros.koukas.sk_lamda_calculus.booleanlogic;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import junit.framework.TestCase;
-
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.T.*;
 import static eu.spyros.koukas.sk_lamda_calculus.booleanlogic.F.*;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created at 2020-08-19
  *
  * @author Spyros Koukas
  */
-public class TTest extends TestCase {
+public class TTest {
 
+    @Test
     public void testHashCode() {
         assertEquals(T.hashCode(), T().hashCode());
         assertEquals(T().hashCode(), T().hashCode());
@@ -40,7 +44,7 @@ public class TTest extends TestCase {
         assertEquals(T().hashCode(), T(T).apply(F).hashCode());
     }
 
-
+    @Test
     public void testEquals() {
         assertEquals(T, T());
         assertEquals(T(), T());
@@ -55,7 +59,8 @@ public class TTest extends TestCase {
         assertFalse(F().equals(T(T).apply(F)));
     }
 
-    public void testTmethod() {
+    @Test
+    public void testTMethod() {
         assertEquals(T, T(T).apply(T));
         assertEquals(T, T(T).apply(F));
         assertEquals(F, T(F).apply(T));
@@ -63,6 +68,7 @@ public class TTest extends TestCase {
 
     }
 
+    @Test
     public void testApply() {
         assertEquals(T, T.apply(T).apply(T));
         assertEquals(T, T.apply(T).apply(F));
@@ -70,6 +76,7 @@ public class TTest extends TestCase {
         assertEquals(F, T.apply(F).apply(F));
     }
 
+    @Test
     public void testT() {
         assertEquals(T, T().apply(T).apply(T));
         assertEquals(T, T().apply(T).apply(F));
@@ -77,6 +84,7 @@ public class TTest extends TestCase {
         assertEquals(F, T().apply(F).apply(F));
     }
 
+    @Test
     public void testToString() {
         assertEquals(T.toString(), T(T).apply(F).toString());
         assertEquals(T.toString(), T(T).apply(T).toString());
@@ -103,6 +111,7 @@ public class TTest extends TestCase {
         assertEquals(F().toString(), T().apply(F).apply(T).toString());
     }
 
+    @Test
     public void testSingleton() {
         assertSame(T, T());
     }
