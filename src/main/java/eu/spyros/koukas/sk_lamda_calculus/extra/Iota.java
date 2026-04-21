@@ -1,4 +1,9 @@
-package eu.spyros.koukas.sk_lamda_calculus.primary;
+package eu.spyros.koukas.sk_lamda_calculus.extra;
+
+import eu.spyros.koukas.sk_lamda_calculus.primary.I;
+import eu.spyros.koukas.sk_lamda_calculus.primary.K;
+import eu.spyros.koukas.sk_lamda_calculus.primary.S;
+import eu.spyros.koukas.sk_lamda_calculus.primary.Term;
 
 import java.util.Objects;
 

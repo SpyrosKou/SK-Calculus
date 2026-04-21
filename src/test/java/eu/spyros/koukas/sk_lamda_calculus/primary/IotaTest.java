@@ -3,7 +3,7 @@ package eu.spyros.koukas.sk_lamda_calculus.primary;
 import org.junit.jupiter.api.Test;
 
 import static eu.spyros.koukas.sk_lamda_calculus.primary.I.I;
-import static eu.spyros.koukas.sk_lamda_calculus.primary.Iota.IOTA;
+import static eu.spyros.koukas.sk_lamda_calculus.extra.Iota.IOTA;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.K.K;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.S.S;
 import static eu.spyros.koukas.sk_lamda_calculus.primary.TestTerms.A;
